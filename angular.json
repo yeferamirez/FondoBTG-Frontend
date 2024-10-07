@@ -24,7 +24,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/custom-theme.scss",
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           },
@@ -119,6 +122,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "FrontEnt"
+    }
+  },
+  "defaultProject": "FrontEnt",
+  "cli": {
+    "analytics": "2d3f82bc-a048-4fa7-82ce-4bb13b2e78a4"
+  }
 }
