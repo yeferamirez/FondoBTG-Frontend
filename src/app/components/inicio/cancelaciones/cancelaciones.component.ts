@@ -26,7 +26,8 @@ export class CancelacionesComponent implements OnInit {
     this.unSubscribe = this.fb.group({
       clientName: ['', Validators.required],
       clientLastName: ['', Validators.required],
-      productCity: ['', Validators.required]
+      productCity: ['', Validators.required],
+      dropdown: ['', Validators.required]
     })
    }
 
@@ -44,14 +45,13 @@ export class CancelacionesComponent implements OnInit {
       console.error('Error al obtener los datos', error);
     });    
   }
-  onSelectProduct(item: any): void {
+  onSelectProduct(item: string): void {
     this.selectedItemProduct = item;
+    const selectedProduct = this.listFundConfigurations.find(x=>x.fundName == this.selectedItemProduct);
+    if (selectedProduct) {
+      this.selectedItemtype = selectedProduct.category;
+    }
     console.log('Elemento seleccionado:', this.selectedItemProduct);
-  }
-
-  onSelectType(item: any): void {
-    this.selectedItemtype = item;
-    console.log('Elemento seleccionado:', this.selectedItemtype);
   }
 
   unSubscriber():void {

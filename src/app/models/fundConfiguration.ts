@@ -1,4 +1,5 @@
 export class FundConfiguration{
-    name: string;
-    type: string;
+    fundName: string;
+    category: string;
+    minimumCost:Int16Array;
 }

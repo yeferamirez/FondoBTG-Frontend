@@ -15,9 +15,11 @@ import{ FundConfiguration } from '../../../models/fundConfiguration';
 export class AperturasComponent implements OnInit {
   subscribe: FormGroup;
   listFundConfigurations: FundConfiguration[];
-  selectedItemProduct: any;
+  selectedItemProduct: string;
   selectedItemtype: any;
+  selectedValue: any;
   selectedNotificationType: any;
+  isSpanVisible: boolean = false;
 
   constructor(private fb:  FormBuilder, private toastr: ToastrService, 
       private router: Router, private subscribeService: SubscribeService) {
@@ -27,6 +29,8 @@ export class AperturasComponent implements OnInit {
       email: ['', Validators.required],
       phoneNumber: ['', Validators.required],
       productCity: ['', Validators.required],
+      dropdown: ['', Validators.required],
+      radioOption: ['', Validators.required],
       value: ['', Validators.required],
     })
    }
@@ -46,12 +50,14 @@ export class AperturasComponent implements OnInit {
     });    
   }
 
-  onSelectProduct(item: any): void {
+  onSelectProduct(item: string): void {
     this.selectedItemProduct = item;
-  }
-
-  onSelectType(item: any): void {
-    this.selectedItemtype = item;
+    const selectedProduct = this.listFundConfigurations.find(x=>x.fundName == this.selectedItemProduct);
+    if (selectedProduct) {
+      this.selectedItemtype = selectedProduct.category;
+      this.selectedValue = selectedProduct.minimumCost;
+      this.isSpanVisible = !!this.selectedValue;
+    }
   }
 
   subscriber():void {
