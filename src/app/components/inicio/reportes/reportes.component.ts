@@ -17,7 +17,7 @@ export class ReportesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getTransactions('2024-10-06');
+    this.getTransactions('2024-10-09');
   }
 
   getTransactions(date:string ):void{
