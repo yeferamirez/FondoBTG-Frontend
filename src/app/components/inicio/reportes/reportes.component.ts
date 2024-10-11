@@ -8,7 +8,7 @@ import { SubscribeService } from '../../../services/subscribe.service'
   styleUrls: ['./reportes.component.css']
 })
 export class ReportesComponent implements OnInit {
-  listTransactions: Transactions[]
+  listTransactions: Transactions[];
 
 
   constructor(private subscribeService: SubscribeService)
